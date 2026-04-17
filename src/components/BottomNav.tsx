@@ -14,7 +14,7 @@ const BottomNav = () => {
   return (
     <nav
       aria-label="Navigation principale"
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-50 px-3 pb-3 pt-2"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md md:max-w-xl z-50 px-3 pb-3 pt-2"
     >
       <div className="glass-strong rounded-3xl px-2 py-2 shadow-elevated">
         <ul className="grid grid-cols-5 gap-1">
