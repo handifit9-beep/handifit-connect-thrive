@@ -22,31 +22,39 @@ import Settings from "./pages/Settings.tsx";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/training" element={<Training />} />
-          <Route path="/training/live" element={<TrainingLive />} />
-          <Route path="/immersive" element={<Immersive />} />
-          <Route path="/health" element={<Health />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/coach" element={<Coach />} />
-          <Route path="/rehab" element={<Rehab />} />
-          <Route path="/autonomy" element={<Autonomy />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
 
-export default App;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AnimatePresence mode="wait">
+            {isLoading ? (
+              <LoadingScreen key="loading" onComplete={() => setIsLoading(false)} />
+            ) : (
+              <Routes key="routes">
+                <Route path="/" element={<Index />} />
+                <Route path="/onboarding" element={<Onboarding />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/training" element={<Training />} />
+                <Route path="/training/live" element={<TrainingLive />} />
+                <Route path="/immersive" element={<Immersive />} />
+                <Route path="/health" element={<Health />} />
+                <Route path="/community" element={<Community />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/coach" element={<Coach />} />
+                <Route path="/rehab" element={<Rehab />} />
+                <Route path="/autonomy" element={<Autonomy />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            )}
+          </AnimatePresence>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
