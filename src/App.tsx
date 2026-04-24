@@ -20,6 +20,8 @@ import Coach from "./pages/Coach.tsx";
 import Rehab from "./pages/Rehab.tsx";
 import Autonomy from "./pages/Autonomy.tsx";
 import Settings from "./pages/Settings.tsx";
+import Auth from "./pages/Auth.tsx";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -38,18 +40,19 @@ const App = () => {
             ) : (
               <Routes key="routes">
                 <Route path="/" element={<Index />} />
-                <Route path="/onboarding" element={<Onboarding />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/training" element={<Training />} />
-                <Route path="/training/live" element={<TrainingLive />} />
-                <Route path="/immersive" element={<Immersive />} />
-                <Route path="/health" element={<Health />} />
-                <Route path="/community" element={<Community />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/coach" element={<Coach />} />
-                <Route path="/rehab" element={<Rehab />} />
-                <Route path="/autonomy" element={<Autonomy />} />
-                <Route path="/settings" element={<Settings />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
+                <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                <Route path="/training" element={<ProtectedRoute><Training /></ProtectedRoute>} />
+                <Route path="/training/live" element={<ProtectedRoute><TrainingLive /></ProtectedRoute>} />
+                <Route path="/immersive" element={<ProtectedRoute><Immersive /></ProtectedRoute>} />
+                <Route path="/health" element={<ProtectedRoute><Health /></ProtectedRoute>} />
+                <Route path="/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
+                <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                <Route path="/coach" element={<ProtectedRoute><Coach /></ProtectedRoute>} />
+                <Route path="/rehab" element={<ProtectedRoute><Rehab /></ProtectedRoute>} />
+                <Route path="/autonomy" element={<ProtectedRoute><Autonomy /></ProtectedRoute>} />
+                <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             )}

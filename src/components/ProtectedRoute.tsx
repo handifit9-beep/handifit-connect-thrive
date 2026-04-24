@@ -1,9 +1,8 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Loader2 } from "lucide-react";
-import Dashboard from "./Dashboard";
 
-const Index = () => {
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useAuth();
   if (loading)
     return (
@@ -12,9 +11,7 @@ const Index = () => {
       </div>
     );
   if (!user) return <Navigate to="/auth" replace />;
-  const onboarded = typeof window !== "undefined" && localStorage.getItem("handifit:onboarded");
-  if (!onboarded) return <Navigate to="/onboarding" replace />;
-  return <Dashboard />;
+  return <>{children}</>;
 };
 
-export default Index;
+export default ProtectedRoute;
