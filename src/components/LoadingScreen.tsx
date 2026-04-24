@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Activity, Accessibility } from "lucide-react";
+import { motion } from "framer-motion";
+import handifitLogo from "@/assets/handifit-logo.png";
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -57,31 +57,22 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="relative z-10 flex flex-col items-center"
       >
-        {/* Icon group */}
-        <div className="relative mb-8">
+        {/* Logo with glow */}
+        <div className="relative">
           <motion.div
             className="absolute inset-0 bg-cyan-500/30 blur-3xl rounded-full"
             animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.8, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <div className="relative flex items-center gap-4 p-6 rounded-3xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 border border-cyan-500/30 backdrop-blur-sm">
-            <Accessibility className="w-12 h-12 text-cyan-400" strokeWidth={1.5} />
-            <Activity className="w-10 h-10 text-cyan-300" strokeWidth={1.5} />
-          </div>
+          <motion.img
+            src={handifitLogo}
+            alt="HANDIFIT"
+            className="relative w-64 md:w-80 h-auto drop-shadow-[0_0_30px_rgba(34,211,238,0.4)]"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          />
         </div>
-
-        {/* Brand name */}
-        <motion.h1
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-4xl md:text-5xl font-bold tracking-tight"
-        >
-          <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent">
-            HANDI
-          </span>
-          <span className="text-foreground">FIT</span>
-        </motion.h1>
 
         {/* Tagline */}
         <motion.p
