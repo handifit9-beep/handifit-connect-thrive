@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Outfit", "system-ui", "sans-serif"],
-        display: ["Space Grotesk", "Outfit", "system-ui", "sans-serif"],
+        sans: ["Helvetica Neue", "Helvetica", "Arial", "system-ui", "sans-serif"],
+        display: ["Noise Sport", "Orbitron", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

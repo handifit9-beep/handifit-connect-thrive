@@ -1,117 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* HANDIFIT — Futuristic dark, neon cyan, accessible-first design system.
-   All colors HSL. Tokens only — never hard-coded colors in components. */
+/* HANDIFIT — Charte graphique officielle.
+   Couleurs : Cyan #3CB5D3 (primary, dégradé vers #30A1BB à 90°),
+   Rouge #D31311 (accent/destructive), Noir #000000, Blanc #FFFFFF.
+   Polices : "Noise Sport" (Orbitron en web fallback) pour titres, Helvetica pour corps.
+   Tokens HSL uniquement — jamais de couleurs en dur dans les composants. */
 
 @layer base {
   :root {
-    /* Deep space background */
-    --background: 222 47% 6%;
-    --foreground: 200 30% 98%;
+    /* Mode sombre (par défaut) — fond noir, texte blanc */
+    --background: 0 0% 0%;             /* #000000 */
+    --foreground: 0 0% 100%;           /* #FFFFFF */
 
-    --surface: 222 40% 9%;
-    --surface-elevated: 220 35% 13%;
+    --surface: 0 0% 6%;
+    --surface-elevated: 0 0% 10%;
 
-    --card: 222 40% 9%;
-    --card-foreground: 200 30% 98%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222 40% 11%;
-    --popover-foreground: 200 30% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Neon cyan brand */
-    --primary: 192 95% 60%;
-    --primary-foreground: 222 47% 6%;
-    --primary-glow: 190 100% 70%;
+    /* Cyan brand #3CB5D3 */
+    --primary: 192 62% 53%;
+    --primary-foreground: 0 0% 0%;
+    --primary-glow: 190 60% 46%;       /* #30A1BB */
 
-    /* Soft electric violet accent */
-    --secondary: 260 70% 65%;
-    --secondary-foreground: 222 47% 6%;
+    /* Rouge accent #D31311 — usage parcimonieux */
+    --secondary: 1 86% 45%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 25% 16%;
-    --muted-foreground: 215 20% 70%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 165 85% 55%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 192 62% 53%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 84% 65%;
+    --destructive: 1 86% 45%;          /* #D31311 */
     --destructive-foreground: 0 0% 100%;
 
     --warning: 38 95% 60%;
-    --warning-foreground: 222 47% 6%;
+    --warning-foreground: 0 0% 0%;
 
-    --success: 150 75% 55%;
-    --success-foreground: 222 47% 6%;
+    --success: 192 62% 53%;
+    --success-foreground: 0 0% 0%;
 
-    --border: 220 30% 18%;
-    --input: 220 30% 18%;
-    --ring: 192 95% 60%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 192 62% 53%;
 
-    --radius: 1.25rem;
+    --radius: 1rem;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(192 95% 60%), hsl(190 100% 70%));
-    --gradient-immersive: linear-gradient(135deg, hsl(192 95% 60%) 0%, hsl(260 70% 65%) 100%);
-    --gradient-surface: linear-gradient(180deg, hsl(222 40% 11% / 0.9), hsl(222 47% 6% / 0.6));
-    --gradient-glow: radial-gradient(ellipse at top, hsl(192 95% 60% / 0.25), transparent 60%);
+    /* Dégradés — angle 90° comme spécifié dans la charte */
+    --gradient-primary: linear-gradient(90deg, hsl(192 62% 53%), hsl(190 60% 46%));
+    --gradient-immersive: linear-gradient(90deg, hsl(192 62% 53%) 0%, hsl(190 60% 46%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 8% / 0.9), hsl(0 0% 0% / 0.6));
+    --gradient-glow: radial-gradient(ellipse at top, hsl(192 62% 53% / 0.22), transparent 60%);
 
-    /* Shadows / glows */
-    --shadow-glow: 0 0 40px -8px hsl(192 95% 60% / 0.55);
-    --shadow-soft: 0 8px 32px -8px hsl(222 80% 2% / 0.6);
-    --shadow-elevated: 0 20px 60px -20px hsl(192 95% 60% / 0.35);
+    /* Ombres / glows */
+    --shadow-glow: 0 0 40px -8px hsl(192 62% 53% / 0.55);
+    --shadow-soft: 0 8px 32px -8px hsl(0 0% 0% / 0.7);
+    --shadow-elevated: 0 20px 60px -20px hsl(192 62% 53% / 0.35);
 
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 222 40% 9%;
-    --sidebar-foreground: 200 30% 98%;
-    --sidebar-primary: 192 95% 60%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 220 25% 16%;
-    --sidebar-accent-foreground: 200 30% 98%;
-    --sidebar-border: 220 30% 18%;
-    --sidebar-ring: 192 95% 60%;
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 192 62% 53%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 192 62% 53%;
   }
 
-  /* Light mode kept for accessibility users who prefer it */
+  /* Mode clair — fond blanc, texte noir */
   .light {
-    --background: 200 30% 98%;
-    --foreground: 222 47% 8%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
     --surface: 0 0% 100%;
-    --surface-elevated: 200 25% 95%;
+    --surface-elevated: 0 0% 96%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 8%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 8%;
-    --primary: 192 90% 40%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 192 62% 53%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 192 95% 55%;
-    --secondary: 260 60% 50%;
+    --primary-glow: 190 60% 46%;
+    --secondary: 1 86% 45%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 200 20% 92%;
-    --muted-foreground: 215 20% 35%;
-    --accent: 165 80% 38%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 30%;
+    --accent: 192 62% 53%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 75% 50%;
+    --destructive: 1 86% 45%;
     --destructive-foreground: 0 0% 100%;
-    --border: 200 20% 85%;
-    --input: 200 20% 85%;
-    --ring: 192 90% 40%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 192 62% 53%;
   }
 }
 
 @layer base {
   * { @apply border-border; }
-  html { font-family: 'Outfit', system-ui, sans-serif; }
+  html {
+    /* Helvetica pour le corps (sous-titres et paragraphes) */
+    font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+  }
   body {
     @apply bg-background text-foreground antialiased;
     background-image: var(--gradient-glow);
     background-attachment: fixed;
     background-size: 100% 100vh;
   }
-  /* Improve focus visibility for accessibility (WCAG) */
+  h1, h2, h3, .font-display {
+    /* "Noise Sport" — fallback web Orbitron (style sport / techno anguleux) */
+    font-family: 'Noise Sport', 'Orbitron', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.01em;
+  }
   :focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
