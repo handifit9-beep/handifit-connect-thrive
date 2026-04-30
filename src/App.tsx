@@ -21,6 +21,7 @@ import Rehab from "./pages/Rehab.tsx";
 import Autonomy from "./pages/Autonomy.tsx";
 import Settings from "./pages/Settings.tsx";
 import Auth from "./pages/Auth.tsx";
+import Arduino from "./pages/Arduino.tsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -53,6 +54,7 @@ const App = () => {
                 <Route path="/rehab" element={<ProtectedRoute><Rehab /></ProtectedRoute>} />
                 <Route path="/autonomy" element={<ProtectedRoute><Autonomy /></ProtectedRoute>} />
                 <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+                <Route path="/arduino" element={<ProtectedRoute><Arduino /></ProtectedRoute>} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             )}
