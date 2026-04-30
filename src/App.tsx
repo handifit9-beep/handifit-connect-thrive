@@ -21,6 +21,7 @@ import Rehab from "./pages/Rehab.tsx";
 import Autonomy from "./pages/Autonomy.tsx";
 import Settings from "./pages/Settings.tsx";
 import Auth from "./pages/Auth.tsx";
+import Arduino from "./pages/Arduino.tsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
