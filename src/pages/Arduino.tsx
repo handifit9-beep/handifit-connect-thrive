@@ -118,7 +118,7 @@ const Arduino = () => {
         session_id: sessionId, user_id: user.id,
         recorded_at: new Date(r.timestamp).toISOString(),
         rpm: r.rpm ?? null, bpm: r.bpm ?? null, speed_kmh: r.speed_kmh ?? null,
-        distance_m: r.distance_m ?? null, force_n: r.force_n ?? null, raw: r.raw ?? null,
+        distance_m: r.distance_m ?? null, force_n: r.force_n ?? null, raw: (r.raw ?? null) as never,
       })));
     }
     const a = aggRef.current;
