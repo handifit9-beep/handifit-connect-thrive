@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Bluetooth, Play, MapPin, Mountain, Trees, Activity, HeartPulse, Flame, Trophy, Mic, Stethoscope, Sparkles } from "lucide-react";
+import { Bluetooth, Play, MapPin, Mountain, Trees, Activity, HeartPulse, Flame, Trophy, Mic, Stethoscope, Sparkles, Usb } from "lucide-react";
 import AppShell from "@/components/AppShell";
 import PageHeader from "@/components/PageHeader";
 import AutonomyRing from "@/components/AutonomyRing";
