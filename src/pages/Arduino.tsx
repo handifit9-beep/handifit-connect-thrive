@@ -79,7 +79,7 @@ const Arduino = () => {
         speed_kmh: r.speed_kmh ?? null,
         distance_m: r.distance_m ?? null,
         force_n: r.force_n ?? null,
-        raw: r.raw ?? null,
+        raw: (r.raw ?? null) as never,
       }));
       const { error: insErr } = await supabase.from("sensor_readings").insert(rows);
       if (insErr) console.error("flush error", insErr);
