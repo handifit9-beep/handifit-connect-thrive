@@ -103,6 +103,7 @@ const Dashboard = () => {
         <div className="grid grid-cols-2 gap-3">
           {[
             { to: "/coach", icon: Mic, label: "Coach IA", color: "text-primary" },
+            { to: "/arduino", icon: Usb, label: "Capteurs Arduino", color: "text-success" },
             { to: "/rehab", icon: Stethoscope, label: "Rééducation", color: "text-accent" },
             { to: "/autonomy", icon: Sparkles, label: "Score Autonomie", color: "text-secondary" },
             { to: "/community", icon: Trophy, label: "Défis & Badges", color: "text-warning" },
