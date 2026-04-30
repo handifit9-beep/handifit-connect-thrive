@@ -53,6 +53,104 @@ export type Database = {
         }
         Relationships: []
       }
+      sensor_readings: {
+        Row: {
+          bpm: number | null
+          distance_m: number | null
+          force_n: number | null
+          id: number
+          raw: Json | null
+          recorded_at: string
+          rpm: number | null
+          session_id: string
+          speed_kmh: number | null
+          user_id: string
+        }
+        Insert: {
+          bpm?: number | null
+          distance_m?: number | null
+          force_n?: number | null
+          id?: number
+          raw?: Json | null
+          recorded_at?: string
+          rpm?: number | null
+          session_id: string
+          speed_kmh?: number | null
+          user_id: string
+        }
+        Update: {
+          bpm?: number | null
+          distance_m?: number | null
+          force_n?: number | null
+          id?: number
+          raw?: Json | null
+          recorded_at?: string
+          rpm?: number | null
+          session_id?: string
+          speed_kmh?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sensor_readings_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sessions: {
+        Row: {
+          avg_bpm: number | null
+          avg_force: number | null
+          avg_rpm: number | null
+          created_at: string
+          duration_seconds: number | null
+          ended_at: string | null
+          id: string
+          max_bpm: number | null
+          notes: string | null
+          started_at: string
+          total_calories: number | null
+          total_distance_m: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avg_bpm?: number | null
+          avg_force?: number | null
+          avg_rpm?: number | null
+          created_at?: string
+          duration_seconds?: number | null
+          ended_at?: string | null
+          id?: string
+          max_bpm?: number | null
+          notes?: string | null
+          started_at?: string
+          total_calories?: number | null
+          total_distance_m?: number | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avg_bpm?: number | null
+          avg_force?: number | null
+          avg_rpm?: number | null
+          created_at?: string
+          duration_seconds?: number | null
+          ended_at?: string | null
+          id?: string
+          max_bpm?: number | null
+          notes?: string | null
+          started_at?: string
+          total_calories?: number | null
+          total_distance_m?: number | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
