@@ -1,10 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Settings, Bluetooth, Globe, Moon, Bell, ChevronRight, Mic, Captions, Vibrate, Eye, Sparkles, LogOut } from "lucide-react";
 import AppShell from "@/components/AppShell";
 import PageHeader from "@/components/PageHeader";
 import AutonomyRing from "@/components/AutonomyRing";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "sonner";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const { signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      toast.success("Déconnexion réussie");
+      navigate("/auth", { replace: true });
+    } catch (e) {
+      toast.error("Erreur lors de la déconnexion");
+    }
+  };
+
   return (
     <AppShell>
       <PageHeader subtitle="Profil" title="Votre espace" />
@@ -91,7 +106,7 @@ const Profile = () => {
       </section>
 
       <section className="px-5 mb-6">
-        <button className="w-full glass rounded-2xl p-4 flex items-center justify-center gap-2 text-destructive font-semibold min-h-[52px]">
+        <button onClick={handleSignOut} className="w-full glass rounded-2xl p-4 flex items-center justify-center gap-2 text-destructive font-semibold min-h-[52px]">
           <LogOut className="size-4" /> Se déconnecter
         </button>
       </section>
