@@ -1,15 +1,18 @@
 import { Trees, Mountain, Building2, Waves, Trophy, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import AppShell from "@/components/AppShell";
 import PageHeader from "@/components/PageHeader";
+import type { WorldId } from "@/components/ImmersiveScene";
 
-const worlds = [
-  { name: "Forêt nordique", desc: "Sons de la nature, oiseaux, ruisseau", icon: Trees, level: 1, grad: "from-emerald-500/40 via-cyan-500/20 to-transparent" },
-  { name: "Sommets alpins", desc: "Cols mythiques, vent et altitude", icon: Mountain, level: 2, grad: "from-violet-500/40 via-cyan-500/20 to-transparent" },
-  { name: "Ville futuriste", desc: "Néons, énergie urbaine, beat électro", icon: Building2, level: 3, grad: "from-fuchsia-500/40 via-primary/20 to-transparent" },
-  { name: "Côte sauvage", desc: "Vagues, embruns, vol des mouettes", icon: Waves, level: 2, grad: "from-cyan-500/40 via-blue-500/20 to-transparent" },
+const worlds: Array<{ id: WorldId; name: string; desc: string; icon: any; level: number; grad: string }> = [
+  { id: "forest", name: "Forêt nordique", desc: "Sons de la nature, oiseaux, ruisseau", icon: Trees, level: 1, grad: "from-emerald-500/40 via-cyan-500/20 to-transparent" },
+  { id: "alps", name: "Sommets alpins", desc: "Cols mythiques, vent et altitude", icon: Mountain, level: 2, grad: "from-violet-500/40 via-cyan-500/20 to-transparent" },
+  { id: "city", name: "Ville futuriste", desc: "Néons, énergie urbaine, beat électro", icon: Building2, level: 3, grad: "from-fuchsia-500/40 via-primary/20 to-transparent" },
+  { id: "coast", name: "Côte sauvage", desc: "Vagues, embruns, vol des mouettes", icon: Waves, level: 2, grad: "from-cyan-500/40 via-blue-500/20 to-transparent" },
 ];
 
 const Immersive = () => {
+  const navigate = useNavigate();
   return (
     <AppShell>
       <PageHeader subtitle="Mode immersif" title="Évadez-vous en pédalant" />
@@ -36,7 +39,8 @@ const Immersive = () => {
       <section className="px-5 grid gap-4 animate-slide-up">
         {worlds.map((w) => (
           <button
-            key={w.name}
+            key={w.id}
+            onClick={() => navigate(`/immersive/world?w=${w.id}`)}
             className={`relative overflow-hidden rounded-3xl p-6 text-left min-h-[140px] glass-strong transition-transform hover:-translate-y-1 bg-gradient-to-br ${w.grad}`}
           >
             <div className="absolute inset-0 bg-gradient-glow opacity-50" aria-hidden />

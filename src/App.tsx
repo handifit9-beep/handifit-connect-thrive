@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard.tsx";
 import Training from "./pages/Training.tsx";
 import TrainingLive from "./pages/TrainingLive.tsx";
 import Immersive from "./pages/Immersive.tsx";
+import ImmersiveWorld from "./pages/ImmersiveWorld.tsx";
 import Health from "./pages/Health.tsx";
 import Community from "./pages/Community.tsx";
 import Profile from "./pages/Profile.tsx";
@@ -47,6 +48,7 @@ const App = () => {
                 <Route path="/training" element={<ProtectedRoute><Training /></ProtectedRoute>} />
                 <Route path="/training/live" element={<ProtectedRoute><TrainingLive /></ProtectedRoute>} />
                 <Route path="/immersive" element={<ProtectedRoute><Immersive /></ProtectedRoute>} />
+                <Route path="/immersive/world" element={<ProtectedRoute><ImmersiveWorld /></ProtectedRoute>} />
                 <Route path="/health" element={<ProtectedRoute><Health /></ProtectedRoute>} />
                 <Route path="/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
                 <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
