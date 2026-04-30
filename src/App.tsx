@@ -54,6 +54,7 @@ const App = () => {
                 <Route path="/rehab" element={<ProtectedRoute><Rehab /></ProtectedRoute>} />
                 <Route path="/autonomy" element={<ProtectedRoute><Autonomy /></ProtectedRoute>} />
                 <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+                <Route path="/arduino" element={<ProtectedRoute><Arduino /></ProtectedRoute>} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             )}
